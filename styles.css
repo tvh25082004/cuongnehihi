@@ -822,13 +822,16 @@ body {
 .invitation-modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.9);
     z-index: 10000;
     animation: modalFadeIn 0.3s ease-out;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 /* Thiệp nhà trai */
@@ -928,9 +931,8 @@ body {
 }
 
 .qr-codes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    display: flex;
+    justify-content: center;
     margin-bottom: 2rem;
 }
 
@@ -951,6 +953,7 @@ body {
     font-family: 'Playfair Display', serif;
     color: #333;
     margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .qr-code {
@@ -958,15 +961,16 @@ body {
 }
 
 .qr-code img {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .qr-code-item p {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 
 .invitation-message {
