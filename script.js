@@ -612,7 +612,160 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Zing MP3 Player - không cần JavaScript vì đã embed iframe
+// Hiệu ứng chim bay và động vật
+class BirdAnimationEffects {
+    constructor() {
+        this.init();
+    }
+    
+    init() {
+        this.createFlyingBirds();
+        this.createFloatingHearts();
+        this.createSparkleEffects();
+    }
+    
+    createFlyingBirds() {
+        // Tạo thêm chim bay ngẫu nhiên
+        setInterval(() => {
+            this.spawnRandomBird();
+        }, 3000);
+    }
+    
+    spawnRandomBird() {
+        const birds = ['🐦', '🕊️', '🦅', '🦜', '🐤'];
+        const bird = document.createElement('div');
+        bird.innerHTML = birds[Math.floor(Math.random() * birds.length)];
+        bird.style.position = 'fixed';
+        bird.style.fontSize = '2rem';
+        bird.style.zIndex = '1000';
+        bird.style.pointerEvents = 'none';
+        bird.style.left = '-100px';
+        bird.style.top = Math.random() * window.innerHeight + 'px';
+        bird.style.animation = `flyAcross ${8 + Math.random() * 4}s linear forwards`;
+        
+        document.body.appendChild(bird);
+        
+        // Xóa chim sau khi bay xong
+        setTimeout(() => {
+            if (bird.parentNode) {
+                bird.parentNode.removeChild(bird);
+            }
+        }, 12000);
+    }
+    
+    createFloatingHearts() {
+        // Tạo trái tim bay lơ lửng
+        setInterval(() => {
+            this.spawnFloatingHeart();
+        }, 2000);
+    }
+    
+    spawnFloatingHeart() {
+        const hearts = ['💖', '💕', '💗', '💝', '💘'];
+        const heart = document.createElement('div');
+        heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.position = 'fixed';
+        heart.style.fontSize = '1.5rem';
+        heart.style.zIndex = '999';
+        heart.style.pointerEvents = 'none';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = window.innerHeight + 'px';
+        heart.style.animation = `floatUp ${6 + Math.random() * 3}s ease-out forwards`;
+        
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+            if (heart.parentNode) {
+                heart.parentNode.removeChild(heart);
+            }
+        }, 9000);
+    }
+    
+    createSparkleEffects() {
+        // Tạo hiệu ứng lấp lánh
+        setInterval(() => {
+            this.spawnSparkle();
+        }, 1500);
+    }
+    
+    spawnSparkle() {
+        const sparkles = ['✨', '⭐', '🌟', '💫', '✨'];
+        const sparkle = document.createElement('div');
+        sparkle.innerHTML = sparkles[Math.floor(Math.random() * sparkles.length)];
+        sparkle.style.position = 'fixed';
+        sparkle.style.fontSize = '1rem';
+        sparkle.style.zIndex = '1001';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.left = Math.random() * window.innerWidth + 'px';
+        sparkle.style.top = Math.random() * window.innerHeight + 'px';
+        sparkle.style.animation = `sparkleFloat ${3 + Math.random() * 2}s ease-in-out forwards`;
+        
+        document.body.appendChild(sparkle);
+        
+        setTimeout(() => {
+            if (sparkle.parentNode) {
+                sparkle.parentNode.removeChild(sparkle);
+            }
+        }, 5000);
+    }
+}
+
+// Hiệu ứng đặc biệt cho lễ cưới
+class CeremonySpecialEffects {
+    constructor() {
+        this.init();
+    }
+    
+    init() {
+        this.addCeremonyGlow();
+        this.addTextPulseEffect();
+        this.addDateHighlightEffect();
+    }
+    
+    addCeremonyGlow() {
+        const ceremonySections = document.querySelectorAll('.wedding-ceremony');
+        ceremonySections.forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.5)';
+                section.style.transform = 'scale(1.02)';
+            });
+            
+            section.addEventListener('mouseleave', () => {
+                section.style.boxShadow = '';
+                section.style.transform = '';
+            });
+        });
+    }
+    
+    addTextPulseEffect() {
+        const ceremonyTitles = document.querySelectorAll('.ceremony-title-special');
+        ceremonyTitles.forEach(title => {
+            setInterval(() => {
+                title.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    title.style.transform = 'scale(1)';
+                }, 200);
+            }, 3000);
+        });
+    }
+    
+    addDateHighlightEffect() {
+        const dateElements = document.querySelectorAll('.day-number, .time');
+        dateElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.color = '#d4af37';
+                element.style.textShadow = '0 0 10px rgba(212, 175, 55, 0.8)';
+                element.style.transform = 'scale(1.1)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                element.style.color = '';
+                element.style.textShadow = '';
+                element.style.transform = '';
+            });
+        });
+    }
+}
 
 // Modal thiệp mừng cưới
 function showInvitationModal() {
@@ -728,6 +881,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Khởi tạo hiệu ứng bản đồ
     new MapEffects();
+    
+    // Khởi tạo hiệu ứng chim bay và động vật
+    new BirdAnimationEffects();
+    
+    // Khởi tạo hiệu ứng đặc biệt cho lễ cưới
+    new CeremonySpecialEffects();
     
     // Khởi tạo hiệu ứng typing
     new TypingEffect();
