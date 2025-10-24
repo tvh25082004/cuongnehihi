@@ -88,6 +88,47 @@
             </div>
         </section>
 
+        <!-- Lễ Nạp Tài -->
+        <section class="wedding-ceremony nap-tai-section">
+            <!-- Hiệu ứng chim bay cho Nạp Tài -->
+            <div class="flying-birds nap-tai-birds">
+                <div class="bird bird-5">🐦</div>
+                <div class="bird bird-6">🕊️</div>
+                <div class="bird bird-7">🐦</div>
+            </div>
+            
+            <!-- Hiệu ứng kim cương rơi -->
+            <div class="falling-diamonds">
+                <div class="diamond diamond-1">💎</div>
+                <div class="diamond diamond-2">💎</div>
+                <div class="diamond diamond-3">💎</div>
+                <div class="diamond diamond-4">💎</div>
+            </div>
+            
+            <div class="ceremony-location">
+                <p class="lunar-date">( Tức Ngày 19 Tháng 9 Năm Ất Tỵ)</p>
+                <p class="location">Tại Gia Đình Nhà Trai</p>
+            </div>
+            
+            <div class="main-ceremony">
+                <h3 class="ceremony-title-special nap-tai-title">Lễ Nạp Tài</h3>
+                <div class="ceremony-time">
+                    <div class="time-info">
+                        <span class="time">7Giờ30'</span>
+                        <span class="day">Thứ Bảy</span>
+                    </div>
+                    <div class="date-info">
+                        <span class="day-number">08</span>
+                    </div>
+                    <div class="date-info">
+                        <span class="month">Tháng 11</span>
+                        <span class="year">2025</span>
+                    </div>
+                </div>
+                <p class="lunar-date">( Tức Ngày 19 Tháng 9 Năm Ất Tỵ)</p>
+            </div>
+        </section>
+        
         <!-- Lễ Vu Quy -->
         <section class="wedding-ceremony">
             <!-- Hiệu ứng chim bay -->
@@ -128,47 +169,6 @@
                     </div>
                 </div>
                 <p class="lunar-date">( Tức Ngày 21 Tháng 9 Năm Ất Tỵ)</p>
-            </div>
-        </section>
-        
-        <!-- Lễ Nạp Tài -->
-        <section class="wedding-ceremony nap-tai-section">
-            <!-- Hiệu ứng chim bay cho Nạp Tài -->
-            <div class="flying-birds nap-tai-birds">
-                <div class="bird bird-5">🐦</div>
-                <div class="bird bird-6">🕊️</div>
-                <div class="bird bird-7">🐦</div>
-            </div>
-            
-            <!-- Hiệu ứng kim cương rơi -->
-            <div class="falling-diamonds">
-                <div class="diamond diamond-1">💎</div>
-                <div class="diamond diamond-2">💎</div>
-                <div class="diamond diamond-3">💎</div>
-                <div class="diamond diamond-4">💎</div>
-            </div>
-            
-            <div class="ceremony-location">
-                <p class="lunar-date">( Tức Ngày 19 Tháng 9 Năm Ất Tỵ)</p>
-                <p class="location">Tại Gia Đình Nhà Trai</p>
-            </div>
-            
-            <div class="main-ceremony">
-                <h3 class="ceremony-title-special nap-tai-title">Lễ Nạp Tài</h3>
-                <div class="ceremony-time">
-                    <div class="time-info">
-                        <span class="time">7Giờ30'</span>
-                        <span class="day">Thứ Bảy</span>
-                    </div>
-                    <div class="date-info">
-                        <span class="day-number">08</span>
-                    </div>
-                    <div class="date-info">
-                        <span class="month">Tháng 11</span>
-                        <span class="year">2025</span>
-                    </div>
-                </div>
-                <p class="lunar-date">( Tức Ngày 19 Tháng 9 Năm Ất Tỵ)</p>
             </div>
         </section>
         
@@ -294,40 +294,37 @@
             </div>
         </section>
 
-        <!-- Button gửi thiệp mừng cưới -->
+        <!-- Buttons gửi thiệp mừng cưới -->
         <section class="send-invitation">
-            <div class="invitation-button-container">
-                <button class="send-invitation-btn" onclick="showInvitationModal()">
-                    <i class="fas fa-gift"></i>
-                    <span>Gửi Thiệp Mừng Cưới</span>
+            <div class="invitation-buttons-container">
+                <button class="send-invitation-btn nha-trai-btn" onclick="showNhaTraiModal()">
+                    <i class="fas fa-male"></i>
+                    <span>Thiệp Mừng Nhà Trai</span>
+                </button>
+                <button class="send-invitation-btn nha-gai-btn" onclick="showNhaGaiModal()">
+                    <i class="fas fa-female"></i>
+                    <span>Thiệp Mừng Nhà Gái</span>
                 </button>
             </div>
         </section>
 
-        <!-- Modal thiệp mừng cưới -->
-        <div id="invitationModal" class="invitation-modal">
+        <!-- Modal thiệp mừng nhà trai -->
+        <div id="nhaTraiModal" class="invitation-modal">
             <div class="invitation-modal-content">
-                <span class="close-invitation-modal">&times;</span>
-                <div class="invitation-card">
+                <span class="close-invitation-modal" onclick="closeNhaTraiModal()">&times;</span>
+                <div class="invitation-card nha-trai-card">
                     <div class="invitation-header">
-                        <h2>Thiệp Mừng Cưới</h2>
+                        <h2>Thiệp Mừng Nhà Trai</h2>
                         <p>Mạnh Hùng & Anh Thư</p>
                     </div>
                     <div class="invitation-body">
                         <div class="qr-codes">
                             <div class="qr-code-item">
-                                <h4>QR Code 1</h4>
+                                <h4>QR Code Nhà Trai</h4>
                                 <div class="qr-code">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cuongne.my.canva.site/welcome" alt="QR Code 1">
+                                    <img src="images/qr-nhà-trai.png" alt="QR Code Nhà Trai">
                                 </div>
-                                <p>Thông tin cưới</p>
-                            </div>
-                            <div class="qr-code-item">
-                                <h4>QR Code 2</h4>
-                                <div class="qr-code">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.google.com/?q=Thanh+Hoa" alt="QR Code 2">
-                                </div>
-                                <p>Địa điểm tổ chức</p>
+                                <p>Thông tin nhà trai</p>
                             </div>
                         </div>
                         <div class="invitation-message">
@@ -337,11 +334,50 @@
                         </div>
                     </div>
                     <div class="invitation-footer">
-                        <button class="share-btn" onclick="shareInvitation()">
+                        <button class="share-btn" onclick="shareNhaTraiInvitation()">
                             <i class="fas fa-share"></i>
                             Chia sẻ thiệp
                         </button>
-                        <button class="download-btn" onclick="downloadInvitation()">
+                        <button class="download-btn" onclick="downloadNhaTraiInvitation()">
+                            <i class="fas fa-download"></i>
+                            Tải xuống
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal thiệp mừng nhà gái -->
+        <div id="nhaGaiModal" class="invitation-modal">
+            <div class="invitation-modal-content">
+                <span class="close-invitation-modal" onclick="closeNhaGaiModal()">&times;</span>
+                <div class="invitation-card nha-gai-card">
+                    <div class="invitation-header">
+                        <h2>Thiệp Mừng Nhà Gái</h2>
+                        <p>Mạnh Hùng & Anh Thư</p>
+                    </div>
+                    <div class="invitation-body">
+                        <div class="qr-codes">
+                            <div class="qr-code-item">
+                                <h4>QR Code Nhà Gái</h4>
+                                <div class="qr-code">
+                                    <img src="images/qr-nhà-gái.png" alt="QR Code Nhà Gái">
+                                </div>
+                                <p>Thông tin nhà gái</p>
+                            </div>
+                        </div>
+                        <div class="invitation-message">
+                            <h3>Lời chúc mừng</h3>
+                            <p>Chúc hai bạn trăm năm hạnh phúc!</p>
+                            <p>Mong rằng tình yêu của hai bạn sẽ mãi mãi bền vững.</p>
+                        </div>
+                    </div>
+                    <div class="invitation-footer">
+                        <button class="share-btn" onclick="shareNhaGaiInvitation()">
+                            <i class="fas fa-share"></i>
+                            Chia sẻ thiệp
+                        </button>
+                        <button class="download-btn" onclick="downloadNhaGaiInvitation()">
                             <i class="fas fa-download"></i>
                             Tải xuống
                         </button>

@@ -760,6 +760,14 @@ body {
     align-items: center;
 }
 
+/* Container cho 2 buttons */
+.invitation-buttons-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .send-invitation-btn {
     background: linear-gradient(45deg, #d4af37, #f4d03f);
     color: white;
@@ -775,6 +783,19 @@ body {
     align-items: center;
     gap: 0.5rem;
     animation: buttonPulse 2s ease-in-out infinite;
+    min-width: 250px;
+}
+
+/* Button nhà trai */
+.nha-trai-btn {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+/* Button nhà gái */
+.nha-gai-btn {
+    background: linear-gradient(45deg, #E91E63, #C2185B);
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
 }
 
 @keyframes buttonPulse {
@@ -808,6 +829,28 @@ body {
     background: rgba(0, 0, 0, 0.8);
     z-index: 10000;
     animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Thiệp nhà trai */
+.nha-trai-card {
+    border: 3px solid #4CAF50;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(69, 160, 73, 0.1));
+}
+
+.nha-trai-card .invitation-header h2 {
+    color: #4CAF50;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* Thiệp nhà gái */
+.nha-gai-card {
+    border: 3px solid #E91E63;
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(194, 24, 91, 0.1));
+}
+
+.nha-gai-card .invitation-header h2 {
+    color: #E91E63;
+    text-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
 }
 
 @keyframes modalFadeIn {
