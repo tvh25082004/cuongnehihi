@@ -957,9 +957,14 @@ function downloadInvitation() {
 
 // Modal thiệp mừng nhà trai
 function showNhaTraiModal() {
+    console.log('showNhaTraiModal called');
     const modal = document.getElementById('nhaTraiModal');
+    console.log('Modal element:', modal);
+    
     if (modal) {
         modal.style.display = 'block';
+        modal.style.zIndex = '99999';
+        console.log('Modal displayed');
         
         // Hiệu ứng fade in
         setTimeout(() => {
@@ -972,6 +977,8 @@ function showNhaTraiModal() {
                 closeNhaTraiModal();
             }
         });
+    } else {
+        console.error('Modal nhaTraiModal not found!');
     }
 }
 
@@ -987,9 +994,14 @@ function closeNhaTraiModal() {
 
 // Modal thiệp mừng nhà gái
 function showNhaGaiModal() {
+    console.log('showNhaGaiModal called');
     const modal = document.getElementById('nhaGaiModal');
+    console.log('Modal element:', modal);
+    
     if (modal) {
         modal.style.display = 'block';
+        modal.style.zIndex = '99999';
+        console.log('Modal displayed');
         
         // Hiệu ứng fade in
         setTimeout(() => {
@@ -1002,6 +1014,8 @@ function showNhaGaiModal() {
                 closeNhaGaiModal();
             }
         });
+    } else {
+        console.error('Modal nhaGaiModal not found!');
     }
 }
 
@@ -1133,6 +1147,35 @@ function downloadNhaGaiInvitation() {
 
 // Khởi tạo tất cả hiệu ứng khi trang web load xong
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, testing modal functions...');
+    console.log('showNhaTraiModal function:', typeof showNhaTraiModal);
+    console.log('showNhaGaiModal function:', typeof showNhaGaiModal);
+    
+    // Test trực tiếp
+    window.testModal = function() {
+        console.log('Testing modal...');
+        showNhaTraiModal();
+    };
+    
+    // Test modal trực tiếp
+    function testModal() {
+        console.log('testModal called');
+        const modal = document.getElementById('nhaTraiModal');
+        console.log('Modal found:', modal);
+        
+        if (modal) {
+            modal.style.display = 'block';
+            modal.style.opacity = '1';
+            modal.style.zIndex = '99999';
+            console.log('Modal should be visible now');
+        } else {
+            console.error('Modal not found!');
+        }
+    }
+    
+    // Make testModal global
+    window.testModal = testModal;
+    
     // Khởi tạo auto music player
     new AutoMusicPlayer();
     
