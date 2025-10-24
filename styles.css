@@ -1014,6 +1014,17 @@ body {
 }
 
 
+/* Nhạc nền tự động phát (ẩn) */
+#backgroundMusic {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+    width: 0;
+    height: 0;
+}
+
 /* Hiệu ứng chim bay */
 .flying-birds {
     position: absolute;

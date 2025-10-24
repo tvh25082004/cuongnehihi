@@ -612,6 +612,48 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Auto Music Player - Tự động phát nhạc nền
+class AutoMusicPlayer {
+    constructor() {
+        this.audio = document.getElementById('backgroundMusic');
+        this.init();
+    }
+    
+    init() {
+        if (this.audio) {
+            // Thiết lập âm lượng
+            this.audio.volume = 0.3; // Âm lượng 30%
+            
+            // Tự động phát nhạc khi trang load
+            this.audio.play().catch(e => {
+                console.log('Không thể tự động phát nhạc:', e);
+                // Thử phát lại khi user tương tác với trang
+                this.setupUserInteractionPlay();
+            });
+        }
+    }
+    
+    setupUserInteractionPlay() {
+        // Phát nhạc khi user click vào trang
+        document.addEventListener('click', () => {
+            if (this.audio.paused) {
+                this.audio.play().catch(e => {
+                    console.log('Vẫn không thể phát nhạc:', e);
+                });
+            }
+        }, { once: true });
+        
+        // Phát nhạc khi user scroll
+        document.addEventListener('scroll', () => {
+            if (this.audio.paused) {
+                this.audio.play().catch(e => {
+                    console.log('Vẫn không thể phát nhạc:', e);
+                });
+            }
+        }, { once: true });
+    }
+}
+
 // Hiệu ứng chim bay và động vật
 class BirdAnimationEffects {
     constructor() {
@@ -864,6 +906,9 @@ function downloadInvitation() {
 
 // Khởi tạo tất cả hiệu ứng khi trang web load xong
 document.addEventListener('DOMContentLoaded', () => {
+    // Khởi tạo auto music player
+    new AutoMusicPlayer();
+    
     // Khởi tạo hiệu ứng Canvas
     new HeartEffect();
     
