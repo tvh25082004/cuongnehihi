@@ -622,35 +622,86 @@ class AutoMusicPlayer {
     init() {
         if (this.audio) {
             // Thiết lập âm lượng
-            this.audio.volume = 0.3; // Âm lượng 30%
+            this.audio.volume = 0.6; // Âm lượng 60%
             
-            // Tự động phát nhạc khi trang load
+            // Tự động phát nhạc ngay lập tức
             this.audio.play().catch(e => {
                 console.log('Không thể tự động phát nhạc:', e);
-                // Thử phát lại khi user tương tác với trang
-                this.setupUserInteractionPlay();
             });
+            
+            // Thử phát lại nhiều lần
+            setTimeout(() => {
+                if (this.audio.paused) {
+                    this.audio.play().catch(e => {
+                        console.log('Thử phát lần 2:', e);
+                    });
+                }
+            }, 1000);
+            
+            setTimeout(() => {
+                if (this.audio.paused) {
+                    this.audio.play().catch(e => {
+                        console.log('Thử phát lần 3:', e);
+                    });
+                }
+            }, 3000);
+            
+            setTimeout(() => {
+                if (this.audio.paused) {
+                    this.audio.play().catch(e => {
+                        console.log('Thử phát lần 4:', e);
+                    });
+                }
+            }, 5000);
+            
+            // Setup fallback cho user interaction
+            this.setupUserInteractionPlay();
         }
     }
     
     setupUserInteractionPlay() {
-        // Phát nhạc khi user click vào trang
-        document.addEventListener('click', () => {
+        // Phát nhạc khi user tương tác với trang
+        const playOnInteraction = () => {
             if (this.audio.paused) {
                 this.audio.play().catch(e => {
                     console.log('Vẫn không thể phát nhạc:', e);
                 });
             }
-        }, { once: true });
+        };
         
-        // Phát nhạc khi user scroll
-        document.addEventListener('scroll', () => {
-            if (this.audio.paused) {
-                this.audio.play().catch(e => {
-                    console.log('Vẫn không thể phát nhạc:', e);
-                });
+        // Thêm nhiều event listener để đảm bảo phát nhạc
+        document.addEventListener('click', playOnInteraction, { once: true });
+        document.addEventListener('scroll', playOnInteraction, { once: true });
+        document.addEventListener('keydown', playOnInteraction, { once: true });
+        document.addEventListener('mousemove', playOnInteraction, { once: true });
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+    }
+}
+
+// Function để phát nhạc thủ công
+function playMusic() {
+    const audio = document.getElementById('backgroundMusic');
+    const btn = document.getElementById('playMusicBtn');
+    
+    if (audio) {
+        audio.play().then(() => {
+            console.log('Nhạc đã phát thành công!');
+            // Thay đổi text và ẩn button sau 3 giây
+            if (btn) {
+                btn.innerHTML = '🎵 Đang Phát...';
+                btn.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                setTimeout(() => {
+                    btn.style.display = 'none';
+                }, 3000);
             }
-        }, { once: true });
+        }).catch(e => {
+            console.log('Không thể phát nhạc:', e);
+            if (btn) {
+                btn.innerHTML = '❌ Lỗi Phát Nhạc';
+                btn.style.background = 'linear-gradient(45deg, #f44336, #d32f2f)';
+            }
+            alert('Không thể phát nhạc. Vui lòng kiểm tra trình duyệt có hỗ trợ audio không.');
+        });
     }
 }
 

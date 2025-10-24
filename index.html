@@ -15,6 +15,9 @@
         Trình duyệt của bạn không hỗ trợ phát nhạc.
     </audio>
     
+    <!-- Button phát nhạc (ẩn vì tự động phát) -->
+    <button id="playMusicBtn" style="display: none;" onclick="playMusic()">🎵 Phát Nhạc</button>
+    
     <!-- Thiệp cưới chính -->
     <div class="wedding-invitation">
         <!-- Header với ảnh cặp đôi -->
@@ -42,26 +45,21 @@
             <div class="wedding-date">SATURDAY 8, 2025</div>
         </section>
 
-        <!-- Thông tin lễ cưới -->
-        <section class="ceremony-info">
+        <!-- Thư mời -->
+        <section class="invitation">
             <div class="invitation-header">
                 <h3>Thư Mời</h3>
                 <p>Tham Dự Lễ Cưới của Hùng & Thư</p>
             </div>
             
-            <div class="ceremony-details">
-                <div class="ceremony-type">
-                    <h4>Lễ Nạp Tài</h4>
-                    <p>Vào Hồi 7h30' Thứ 7</p>
-                    <div class="date-display">
-                        <span class="month">Tháng 11</span>
-                        <span class="separator">|</span>
-                        <span class="day">08</span>
-                        <span class="separator">|</span>
-                        <span class="year">2025</span>
-                    </div>
-                    <p class="lunar-date">( Tức Ngày 19 Tháng 9 Năm Ất Tỵ)</p>
-                </div>
+            <!-- Ảnh cặp đôi trong thư mời -->
+            <div class="invitation-photo">
+                <img src="images/t/TIN_5099.jpg" alt="Mạnh Hùng & Anh Thư" class="invitation-couple-photo">
+            </div>
+            
+            <div class="invitation-message">
+                <p>Trân trọng kính mời bạn đến dự lễ cưới của chúng tôi</p>
+                <p>Mong được chia sẻ niềm vui hạnh phúc cùng gia đình và bạn bè</p>
             </div>
         </section>
 
@@ -173,6 +171,7 @@
                 <p class="lunar-date">( Tức Ngày 19 Tháng 9 Năm Ất Tỵ)</p>
             </div>
         </section>
+        
 
         <!-- Album ảnh cưới -->
         <section class="photo-album">

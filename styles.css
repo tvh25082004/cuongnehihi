@@ -1025,6 +1025,41 @@ body {
     height: 0;
 }
 
+/* Ảnh cặp đôi trong thư mời */
+.invitation-photo {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.invitation-couple-photo {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    animation: photoFloat 6s ease-in-out infinite;
+}
+
+.invitation-couple-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.5);
+}
+
+.invitation-message {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0 2rem;
+}
+
+.invitation-message p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
 /* Hiệu ứng chim bay */
 .flying-birds {
     position: absolute;
