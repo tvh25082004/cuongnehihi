@@ -1372,6 +1372,39 @@ body {
     }
 }
 
+/* Phần mời ăn thân mật */
+.meal-invitation {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.meal-title {
+    background: linear-gradient(45deg, #FFC107, #FF9800);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 3s ease-in-out infinite;
+}
+
+.meal-message {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 10px;
+}
+
+.meal-message p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
 /* Hiệu ứng trái tim bay lơ lửng */
 @keyframes floatUp {
     0% {

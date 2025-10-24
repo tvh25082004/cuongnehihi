@@ -955,6 +955,182 @@ function downloadInvitation() {
     link.click();
 }
 
+// Modal thiệp mừng nhà trai
+function showNhaTraiModal() {
+    const modal = document.getElementById('nhaTraiModal');
+    if (modal) {
+        modal.style.display = 'block';
+        
+        // Hiệu ứng fade in
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+        
+        // Đóng modal khi click outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeNhaTraiModal();
+            }
+        });
+    }
+}
+
+function closeNhaTraiModal() {
+    const modal = document.getElementById('nhaTraiModal');
+    if (modal) {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}
+
+// Modal thiệp mừng nhà gái
+function showNhaGaiModal() {
+    const modal = document.getElementById('nhaGaiModal');
+    if (modal) {
+        modal.style.display = 'block';
+        
+        // Hiệu ứng fade in
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 10);
+        
+        // Đóng modal khi click outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeNhaGaiModal();
+            }
+        });
+    }
+}
+
+function closeNhaGaiModal() {
+    const modal = document.getElementById('nhaGaiModal');
+    if (modal) {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}
+
+// Share và download cho nhà trai
+function shareNhaTraiInvitation() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Thiệp Mừng Nhà Trai - Mạnh Hùng & Anh Thư',
+            text: 'Chúc mừng cưới Mạnh Hùng & Anh Thư!',
+            url: window.location.href
+        });
+    } else {
+        const shareText = 'Chúc mừng cưới Mạnh Hùng & Anh Thư! Xem thiệp cưới nhà trai tại: ' + window.location.href;
+        navigator.clipboard.writeText(shareText).then(() => {
+            alert('Đã copy link chia sẻ vào clipboard!');
+        });
+    }
+}
+
+function downloadNhaTraiInvitation() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = 800;
+    canvas.height = 1000;
+    
+    // Vẽ background
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Vẽ tiêu đề
+    ctx.fillStyle = '#4CAF50';
+    ctx.font = 'bold 48px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Thiệp Mừng Nhà Trai', canvas.width / 2, 100);
+    
+    // Vẽ tên cặp đôi
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 32px Arial';
+    ctx.fillText('Mạnh Hùng & Anh Thư', canvas.width / 2, 150);
+    
+    // Vẽ QR code placeholder
+    ctx.fillStyle = '#ddd';
+    ctx.fillRect(canvas.width / 2 - 75, 200, 150, 150);
+    ctx.fillStyle = '#666';
+    ctx.font = '16px Arial';
+    ctx.fillText('QR Code Nhà Trai', canvas.width / 2, 280);
+    
+    // Vẽ lời chúc
+    ctx.fillStyle = '#333';
+    ctx.font = '20px Arial';
+    ctx.fillText('Chúc hai bạn trăm năm hạnh phúc!', canvas.width / 2, 400);
+    ctx.fillText('Mong rằng tình yêu của hai bạn sẽ mãi mãi bền vững.', canvas.width / 2, 430);
+    
+    // Tải xuống
+    const link = document.createElement('a');
+    link.download = 'thiep-mung-nha-trai.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
+
+// Share và download cho nhà gái
+function shareNhaGaiInvitation() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Thiệp Mừng Nhà Gái - Mạnh Hùng & Anh Thư',
+            text: 'Chúc mừng cưới Mạnh Hùng & Anh Thư!',
+            url: window.location.href
+        });
+    } else {
+        const shareText = 'Chúc mừng cưới Mạnh Hùng & Anh Thư! Xem thiệp cưới nhà gái tại: ' + window.location.href;
+        navigator.clipboard.writeText(shareText).then(() => {
+            alert('Đã copy link chia sẻ vào clipboard!');
+        });
+    }
+}
+
+function downloadNhaGaiInvitation() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = 800;
+    canvas.height = 1000;
+    
+    // Vẽ background
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Vẽ tiêu đề
+    ctx.fillStyle = '#E91E63';
+    ctx.font = 'bold 48px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Thiệp Mừng Nhà Gái', canvas.width / 2, 100);
+    
+    // Vẽ tên cặp đôi
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 32px Arial';
+    ctx.fillText('Mạnh Hùng & Anh Thư', canvas.width / 2, 150);
+    
+    // Vẽ QR code placeholder
+    ctx.fillStyle = '#ddd';
+    ctx.fillRect(canvas.width / 2 - 75, 200, 150, 150);
+    ctx.fillStyle = '#666';
+    ctx.font = '16px Arial';
+    ctx.fillText('QR Code Nhà Gái', canvas.width / 2, 280);
+    
+    // Vẽ lời chúc
+    ctx.fillStyle = '#333';
+    ctx.font = '20px Arial';
+    ctx.fillText('Chúc hai bạn trăm năm hạnh phúc!', canvas.width / 2, 400);
+    ctx.fillText('Mong rằng tình yêu của hai bạn sẽ mãi mãi bền vững.', canvas.width / 2, 430);
+    
+    // Tải xuống
+    const link = document.createElement('a');
+    link.download = 'thiep-mung-nha-gai.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
+
 // Khởi tạo tất cả hiệu ứng khi trang web load xong
 document.addEventListener('DOMContentLoaded', () => {
     // Khởi tạo auto music player
